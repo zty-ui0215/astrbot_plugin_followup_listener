@@ -1,6 +1,6 @@
-name: helloworld # 插件唯一识别名，以 astrbot_plugin_ 前缀开头
-display_name: helloworld # 用于展示的名字，可以是方便人类阅读的名字（需要版本 >= v4.5.0，低版本不会报错，请放心填写）
-desc: AstrBot 插件示例。 # 插件简短描述
-version: v1.3.0 # 插件版本号。格式：v1.1.1 或者 v1.1
-author: Soulter # 作者
-repo: https://github.com/Soulter/helloworld # 插件的仓库地址
+name: astrbot_plugin_followup_listener
+display_name: "连续追问监听器"
+desc: "在群聊中开启限时监听窗口，用户发送包含特定符号或关键词的消息时自动触发连续回复，无需每次都 @ Bot"
+author: kelinton
+repo: "https://github.com/zty-ui0215/astrbot_plugin_followup_listener"
+version: 1.0.3

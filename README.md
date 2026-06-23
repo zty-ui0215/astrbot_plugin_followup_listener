@@ -1,14 +1,57 @@
-# astrbot-plugin-helloworld
+# 连续追问监听器 (AstrBot 插件)
 
-AstrBot 插件模板 / A template plugin for AstrBot plugin feature
+本插件使 Bot 能够在回复后的一段时间内，自动监听用户的连续追问，无需每次都 @ Bot。
 
-> [!NOTE]
-> This repo is just a template of [AstrBot](https://github.com/AstrBotDevs/AstrBot) Plugin.
-> 
-> [AstrBot](https://github.com/AstrBotDevs/AstrBot) is an agentic assistant for both personal and group conversations. It can be deployed across dozens of mainstream instant messaging platforms, including QQ, Telegram, Feishu, DingTalk, Slack, LINE, Discord, Matrix, etc. In addition, it provides a reliable and extensible conversational AI infrastructure for individuals, developers, and teams. Whether you need a personal AI companion, an intelligent customer support agent, an automation assistant, or an enterprise knowledge base, AstrBot enables you to quickly build AI applications directly within your existing messaging workflows.
+## 安装方法
 
-# Supports
+### 手动安装
 
-- [AstrBot Repo](https://github.com/AstrBotDevs/AstrBot)
-- [AstrBot Plugin Development Docs (Chinese)](https://docs.astrbot.app/dev/star/plugin-new.html)
-- [AstrBot Plugin Development Docs (English)](https://docs.astrbot.app/en/dev/star/plugin-new.html)
+克隆本仓库到astrbot的plugin文件夹
+
+## 配置说明
+
+插件提供以下配置项，可在 AstrBot 管理面板的「插件设置」中修改：
+
+| 配置项 | 类型 | 默认值 | 说明 |
+|--------|------|--------|------|
+| `enable` | 布尔 | `true` | 插件总开关，关闭后完全停止工作 |
+| `listen_duration` | 整数 | `30` | 监听时长（秒），Bot 回复后开启监听窗口的持续时间 |
+| `trigger_symbols` | 列表 | `["?", "？"]` | 触发符号列表，消息中包含这些符号时触发追问 |
+| `trigger_keywords` | 列表 | `["为什么", "怎么", "什么", "如何", "怎样"]` | 触发关键词列表 |
+| `system_prompt` | 字符串 |  | 连续追问时使用的系统提示词 |
+
+## 使用指南
+
+### 基本使用
+
+1. 在群聊中 @ Bot 并发送消息
+2. Bot 回复后，监听窗口自动开启
+3. 在监听时长内，该用户发送包含触发符号/关键词的消息
+4. Bot 自动回复，无需再次 @ 
+
+### 触发条件说明
+
+消息只要包含**任一触发符号**或**任一触发关键词**即可触发
+
+## 许可
+
+本插件基于Astrbot开发，因此遵循源项目的AGPL-3.0许可证
+
+## 更新日志
+
+### v1.0.3
+- 添加了readme文件
+
+### v1.0.2
+- 修复定时器回调函数异步调用问题
+- 修复对话历史获取缺少 await 的问题
+- 完善配置 Schema 和元数据文件
+
+### v1.0.1
+- 修复json格式
+
+### v1.0.0
+- 初始代码
+- 支持基础连续追问功能
+- 支持自定义触发符号和关键词
+

@@ -1,0 +1,32 @@
+{
+  "enable": {
+    "description": "插件总开关",
+    "hint": "关闭后插件将完全停止工作，不处理任何消息",
+    "type": "bool",
+    "default": true
+  },
+  "listen_duration": {
+    "description": "监听时长（秒）",
+    "hint": "Bot 回复后开启监听窗口的持续时间，建议设置为 10-60 秒",
+    "type": "int",
+    "default": 30
+  },
+  "trigger_symbols": {
+    "description": "触发符号列表",
+    "hint": "消息中包含这些符号时会触发连续追问，例如：?、？等",
+    "type": "list",
+    "default": ["?", "?"]
+  },
+  "trigger_keywords": {
+    "description": "触发关键词列表",
+    "hint": "消息中包含这些关键词时会触发连续追问，例如：'为什么'、'怎么'、'什么'等",
+    "type": "list",
+    "default": ["为什么", "怎么", "什么", "如何", "怎样"]
+  },
+  "system_prompt": {
+    "description": "系统提示词",
+    "hint": "连续追问时使用的系统提示词，留空则使用默认提示",
+    "type": "string",
+    "default": "你是一个智能助手。"
+  }
+}
